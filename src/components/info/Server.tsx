@@ -1,10 +1,10 @@
 // @flow
-import * as React from "react";
+
 import styled from "styled-components";
-import { FlexWrapper } from "../FlexWrapper";
+
 import { Icon } from "../icon/Icon";
-type Props = {};
-export const Server = (props: Props) => {
+
+export const Server = () => {
   return (
     <div>
       <h2>Сервера Рома Продакшен</h2>

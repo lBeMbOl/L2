@@ -1,7 +1,7 @@
 // @flow
 import { styled } from "styled-components";
-type Props = {};
-export const Menu = (props: Props) => {
+
+export const Menu = () => {
   return (
     <StyledMenu>
       <ul>

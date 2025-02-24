@@ -6,10 +6,8 @@ import { Menu } from "../../components/menu/Menu";
 import Button from "@mui/material/Button/Button";
 import { Lk } from "../../components/logo/Lk";
 import { Icon } from "../../components/icon/Icon";
-import imge from "./../../assets/images/papper.webp";
 
-type Props = {};
-export const Header = (props: Props) => {
+export const Header = () => {
   return (
     <StyledHeader>
       <Logo />

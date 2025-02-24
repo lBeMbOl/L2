@@ -1,8 +1,8 @@
 // @flow
-import * as React from "react";
+
 import { Annonce } from "./Annonce";
-type Props = {};
-export const News = (props: Props) => {
+
+export const News = () => {
   return (
     <div>
       <h2>Новости и Акции</h2>

@@ -3,9 +3,8 @@ import Button from "@mui/material/Button/Button";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import imge from "./../../../assets/images/img.jpeg";
 import { styled } from "styled-components";
-import svgBackground from "./../../../assets/images/image.png";
-type Props = {};
-export const Main = (props: Props) => {
+
+export const Main = () => {
   return (
     <StyledMain>
       <FlexWrapper>
@@ -51,11 +50,6 @@ const StyledMain = styled.div`
   background-repeat: no-repeat; /* Отключает повторение */
 `;
 
-const Photo = styled.img`
-  width: 350px;
-  height: 430px;
-  object-fit: cover;
-`;
 const MainTitle = styled.h3`
   text-align: left;
   margin-left: 0;

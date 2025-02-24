@@ -1,9 +1,7 @@
 // @flow
 import Button from "@mui/material/Button/Button";
-import * as React from "react";
 import { styled } from "styled-components";
 import { PlayerPVP } from "./PlayerPVP";
-type Props = {};
 
 const Players = [
   ["Имя персонажа", 0],
@@ -18,7 +16,7 @@ const Players = [
   ["Имя персонажа", 0],
 ];
 
-export const Playerstop = (props: Props) => {
+export const Playerstop = () => {
   return (
     <div>
       <h2>Топ игроков</h2>

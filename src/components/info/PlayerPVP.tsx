@@ -1,10 +1,10 @@
 // @flow
-import * as React from "react";
+
 import { styled } from "styled-components";
 type Props = {
   id: number;
-  name: string;
-  count: number;
+  name: any;
+  count: any;
 };
 export const PlayerPVP = (props: Props) => {
   const color = props.id % 2 == 0 ? "#d8cecec0" : "#fbf5f5fb";
