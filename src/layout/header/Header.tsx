@@ -6,45 +6,51 @@ import { Menu } from "../../components/menu/Menu";
 import Button from "@mui/material/Button/Button";
 import { Lk } from "../../components/logo/Lk";
 import { Icon } from "../../components/icon/Icon";
+import { theme } from "../../styles/Theme";
+import { font, size } from "../../styles/Common";
+import { BurgerButton } from "./mobileMenu/BurgerButton";
 
 export const Header = () => {
   return (
-    <StyledHeader>
-      <Logo />
-      <Icon id="telegram" viewBox="-10 -15 50 50" width="70" height="70" />
-      <Icon id="discord" viewBox="0 0 256 256" width="35" height="35" />
-
-      <MenuContainer>
-        <Menu />
-      </MenuContainer>
-      <Button
-        variant="contained"
-        startIcon={<Lk />}
-        sx={{
-          bgcolor: "#000027",
-          color: "white",
-          fontWeight: 700, // Альтернативная запись жирного
-          fontSize: "1.1rem", // Размер шрифта
-          width: 300, // Ширина в пикселях
-          height: 50, // Высота в пикселях
-          textTransform: "capitalize",
-          "&:hover": {
-            bgcolor: "#01d9fa",
-          },
-        }}
-      >
-        Личный кабинет
-      </Button>
-    </StyledHeader>
+    <div>
+      <BurgerButton />
+      <StyledHeader>
+        <Logo />
+        <SocialLink href={"https://vk.com"} target={"_blank"}>
+          <Icon id="telegram" viewBox="0 -15 25 50" width="70" height="70" />
+        </SocialLink>
+        <SocialLink target={"_blank"} href={"https://vk.com"}>
+          <Icon id="discord" viewBox="0 0 256 256" width="35" height="35" />
+        </SocialLink>
+        <MenuContainer>
+          <Menu />
+        </MenuContainer>{" "}
+        <Button
+          variant="contained"
+          startIcon={<Lk />}
+          sx={{
+            bgcolor: theme.colors.buttonBg,
+            fontSize: font({ weight: 700, Fmax: 18, Fmin: 12 }), // Размер шрифта
+            color: "white",
+            width: 300, // Ширина в пикселях
+            height: size({ Fmax: 50, Fmin: 40 }), // Высота в пикселях
+            textTransform: "capitalize",
+            "&:hover": {
+              bgcolor: theme.colors.buttonHover,
+            },
+          }}
+        >
+          Личный кабинет
+        </Button>
+      </StyledHeader>
+    </div>
   );
 };
 const StyledHeader = styled.header`
-  background-size: cover; /* Масштабирует изображение для заполнения блока */
-  background-position: center; /* Центрирует изображение */
   display: flex;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(to right, #ffffff, #01d9fa);
+  background: linear-gradient(to right, ${theme.colors.TextColor}, #01d9fa);
   border-radius: 50px;
   margin: 0 50px;
   padding-right: 50px;
@@ -52,11 +58,33 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   width: 90%;
+  max-height: ${size({ Fmax: 100, Fmin: 60 })};
   z-index: 1000;
+
+  @media ${theme.media.mobile} {
+    display: none;
+  }
 `;
 
 const MenuContainer = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  margin-right: 10px;
+`;
+
+const SocialLink = styled.a`
+  padding: 5px;
+  background-color: ${theme.colors.iconsPrimary};
+  border-radius: 50%;
+  width: ${size({ Fmax: 50, Fmin: 20 })};
+  height: ${size({ Fmax: 50, Fmin: 20 })};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${theme.colors.iconsPrimary};
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;

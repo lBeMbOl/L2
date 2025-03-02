@@ -18,8 +18,10 @@ export const Info = () => {
 
 const Infostyled = styled.div`
   min-height: 50vh;
+
   display: flex;
   justify-content: center;
   gap: 25px;
   align-items: flex-start;
+  flex-wrap: wrap;
 `;

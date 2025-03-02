@@ -2,6 +2,9 @@
 import Button from "@mui/material/Button/Button";
 import { styled } from "styled-components";
 import { PlayerPVP } from "./PlayerPVP";
+import { theme } from "../../styles/Theme";
+import { size } from "../../styles/Common";
+import { useState } from "react";
 
 const Players = [
   ["Имя персонажа", 0],
@@ -17,41 +20,47 @@ const Players = [
 ];
 
 export const Playerstop = () => {
+  const [PVPorPK, setPVPorPK] = useState(true);
+
+  let PVPcolor = PVPorPK ? theme.colors.buttonBg : theme.colors.iconsSecondary;
+  let PKcolor = PVPorPK ? theme.colors.iconsSecondary : theme.colors.buttonBg;
   return (
-    <div>
+    <Wrapper>
       <h2>Топ игроков</h2>
       <Header>
         <Servername>Server</Servername>
 
         <Button
+          onClick={() => setPVPorPK(!PVPorPK)}
           variant="contained"
           sx={{
-            bgcolor: "#0909e2",
+            bgcolor: PVPcolor,
             color: "white",
             fontWeight: 700, // Альтернативная запись жирного
             fontSize: "1.1rem", // Размер шрифта
-            width: 100, // Ширина в пикселях
-            height: 40, // Высота в пикселях
+            width: size({ Fmax: 100, Fmin: 20 }), // Ширина в пикселях
+            height: size({ Fmax: 40, Fmin: 30 }), // Высота в пикселях
             textTransform: "none",
             "&:hover": {
-              bgcolor: "#01d9fa",
+              bgcolor: theme.colors.buttonHover,
             },
           }}
         >
           PVP
         </Button>
         <Button
+          onClick={() => setPVPorPK(!PVPorPK)}
           variant="contained"
           sx={{
-            bgcolor: "#000027",
+            bgcolor: PKcolor,
             color: "white",
             fontWeight: 700, // Альтернативная запись жирного
             fontSize: "1.1rem", // Размер шрифта
-            width: 100, // Ширина в пикселях
-            height: 40, // Высота в пикселях
+            width: size({ Fmax: 100, Fmin: 20 }), // Ширина в пикселях
+            height: size({ Fmax: 40, Fmin: 30 }), // Высота в пикселях
             textTransform: "none",
             "&:hover": {
-              bgcolor: "#01d9fa",
+              bgcolor: theme.colors.buttonHover,
             },
           }}
         >
@@ -68,36 +77,39 @@ export const Playerstop = () => {
           />
         ))}
       </List>
-    </div>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  min-width: 280px;
+`;
+
 const Servername = styled.div`
   font-weight: bold;
-  color: #000027;
+  color: ${theme.colors.buttonBg};
   font-size: 1.5rem;
-  margin-right: 150px;
 `;
 
 const Header = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f6ebebc0;
-
-  min-height: 80px;
-  padding-left: 20px;
-  min-width: 500px;
+  background-color: ${theme.colors.BCGScondary};
+  width: 100%;
+  max-height: 80px;
+  padding: 20px;
+  max-width: 500px;
   gap: 20px;
+  margin-top: 20px;
 `;
 
 const List = styled.div`
   display: flex;
   align-items: flex-start;
-  background-color: #f6ebebc0;
+  background-color: ${theme.colors.BCGScondary};
   flex-direction: column;
-  min-height: 70vh;
-  min-width: 500px;
+  width: 100%;
   font-weight: bold;
-  color: #000027;
-  font-size: 1.5rem;
+  color: ${theme.colors.fontPrimary};
+  font-size: 1.3rem;
 `;

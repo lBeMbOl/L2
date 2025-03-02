@@ -3,6 +3,8 @@ import Button from "@mui/material/Button/Button";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import imge from "./../../../assets/images/img.jpeg";
 import { styled } from "styled-components";
+import { theme } from "../../../styles/Theme";
+import { size } from "../../../styles/Common";
 
 export const Main = () => {
   return (
@@ -21,15 +23,15 @@ export const Main = () => {
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#000027",
+              bgcolor: theme.colors.buttonBg,
               color: "white",
               fontWeight: 700, // Альтернативная запись жирного
               fontSize: "1.1rem", // Размер шрифта
-              width: 250, // Ширина в пикселях
-              height: 50, // Высота в пикселях
+              width: size({ Fmax: 250, Fmin: 150 }), // Ширина в пикселях
+              height: size({ Fmax: 50, Fmin: 30 }), // Высота в пикселях
               textTransform: "none",
               "&:hover": {
-                bgcolor: "#01d9fa",
+                bgcolor: theme.colors.buttonHover,
               },
             }}
           >
@@ -42,30 +44,35 @@ export const Main = () => {
 };
 
 const StyledMain = styled.div`
-  min-height: 100vh;
-  padding: 200px;
+  padding: ${size({ Fmax: 200, Fmin: 20 })};
+  padding-top: 200px;
   background-image: url(${imge});
   background-size: cover; /* Масштабирует изображение для заполнения блока */
-  background-position: center; /* Центрирует изображение */
+  background-position: center bottom; /* Центрирует изображение */
   background-repeat: no-repeat; /* Отключает повторение */
+  margin-bottom: 50px;
 `;
 
 const MainTitle = styled.h3`
+  font-size: 1rem;
+  margin: 10px;
   text-align: left;
   margin-left: 0;
   padding-left: 0;
   max-width: 470px;
-  color: #01d9fa;
+  color: ${theme.colors.iconsPrimary};
 `;
 
 const Title = styled.h1`
+  font-size: 1.3rem;
+  margin: 10px;
   text-align: left;
   margin-left: 0;
   padding-left: 0;
   max-width: 470px;
-  color: white;
+  color: ${theme.colors.TextColor};
 `;
 
 const ServerName = styled.span`
-  color: #01d9fa;
+  color: ${theme.colors.iconsPrimary};
 `;

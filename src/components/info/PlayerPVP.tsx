@@ -1,6 +1,7 @@
 // @flow
 
 import { styled } from "styled-components";
+import { size } from "../../styles/Common";
 type Props = {
   id: number;
   name: any;
@@ -22,9 +23,8 @@ const Player = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  min-height: 80px;
+  min-height: ${size({ Fmax: 80, Fmin: 40 })};
   padding-left: 20px;
   padding-right: 20px;
-  min-width: 480px;
-  max-width: 100vh;
+  width: 100%;
 `;

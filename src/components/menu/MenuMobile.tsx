@@ -1,9 +1,10 @@
 // @flow
 import { styled } from "styled-components";
-import { theme } from "../../styles/Theme";
-import { font, size } from "../../styles/Common";
 
-export const Menu = () => {
+import { Icon } from "../icon/Icon";
+import { theme } from "../../styles/Theme";
+
+export const MenuMobile = () => {
   return (
     <StyledMenu>
       <ul>
@@ -20,40 +21,39 @@ export const Menu = () => {
           <a href="">Концепция</a>
         </li>
       </ul>
+      <Iconwrapper>
+        <Icon id="telegram" viewBox="0 -1 25 25" width="70" height="70" />
+        <Icon id="discord" viewBox="0 0 256 256" width="70" height="70" />
+      </Iconwrapper>
+      <Iconwrapper></Iconwrapper>
     </StyledMenu>
   );
 };
 
+const Iconwrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+  gap: 20px;
+`;
+
 const StyledMenu = styled.nav`
+  z-index: 99999;
   ul {
     display: flex;
-    gap: ${size({ Fmax: 40, Fmin: 5 })};
+    flex-direction: column;
+    gap: 20px;
   }
   li {
     list-style-type: none;
   }
   a {
     color: ${theme.colors.fontPrimary};
-    font-size: ${font({ weight: 400, Fmax: 22, Fmin: 12 })};
+    font-size: 2rem;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-
-    &:hover {
-      color: ${theme.colors.iconsSecondary}; /* Цвет текста при наведении */
-      animation: scaleAnimation 1s infinite; /* Повторяем анимацию каждые 1 секунду */
-    }
-  }
-
-  @keyframes scaleAnimation {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.3);
-    }
-    100% {
-      transform: scale(1);
-    }
   }
 `;

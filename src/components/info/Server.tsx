@@ -3,10 +3,12 @@
 import styled from "styled-components";
 
 import { Icon } from "../icon/Icon";
+import { theme } from "../../styles/Theme";
+import { size } from "../../styles/Common";
 
 export const Server = () => {
   return (
-    <div>
+    <Wrapper>
       <h2>Сервера Рома Продакшен</h2>
       <ServerInfo>
         <Icon id="play" viewBox="0 0 35 35" width="35" height="35" />
@@ -21,37 +23,41 @@ export const Server = () => {
         <ServerLink href="">Играть</ServerLink>{" "}
         <ServerLink href="">О сервере</ServerLink>{" "}
       </Startgame>
-    </div>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div``;
+
 const ServerName = styled.div`
   font-weight: bold;
-  color: #000027;
+  color: ${theme.colors.fontPrimary};
   font-size: 1.5rem;
 `;
 
 const ServerName2 = styled.div`
   font-weight: bold;
-  color: #969696;
+  color: ${theme.colors.fontSecondary};
   font-size: 1.2rem;
   display: flex;
 `;
 
 const ServerInfo = styled.div`
+  margin-top: 20px;
   display: flex;
   align-items: center;
 
-  background-color: #f6ebebc0;
+  background-color: ${theme.colors.BCGScondary};
   justify-content: flex-start;
   min-height: 100px;
+  min-width: 200px;
   padding-left: 20px;
   gap: 10px;
   position: relative;
   &::after {
     content: "";
-    width: 20px; /* Размер кружка */
-    height: 20px; /* Размер кружка */
+    width: ${size({ Fmax: 20, Fmin: 10 })}; /* Размер кружка */
+    height: ${size({ Fmax: 20, Fmin: 10 })}; /* Размер кружка */
     background-color: red; /* Цвет кружка */
     border-radius: 50%; /* Делаем круглым */
     position: absolute; /* Абсолютное позиционирование */
@@ -61,14 +67,16 @@ const ServerInfo = styled.div`
 `;
 
 const Startgame = styled.div`
-  background-color: #000027;
-  min-width: 400px;
-  min-height: 50px;
+  background-color: ${theme.colors.buttonBg};
+  max-width: 400px;
+  max-height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
   position: relative; /* Добавляем относительное позиционирование */
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   /* Псевдоэлемент для красного ромба */
   &::before {
@@ -85,13 +93,28 @@ const Startgame = styled.div`
 
 const ServerLink = styled.a`
   text-decoration: none;
-  color: white;
+  color: ${theme.colors.TextColor};
   font-size: 1.3rem;
+  display: inline-block;
+
   &:hover {
-    color: #01d9fa; /* Цвет текста при наведении */
+    color: ${theme.colors.iconsPrimary}; /* Цвет текста при наведении */
+    animation: scaleAnimation 1s infinite; /* Повторяем анимацию каждые 1 секунду */
+  }
+
+  @keyframes scaleAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 `;
 
 const Rait = styled.span`
-  color: #01d9fa;
+  color: ${theme.colors.iconsSecondary};
 `;
