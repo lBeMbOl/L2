@@ -1,14 +1,19 @@
+import { useState } from "react";
 import "./App.css";
 import { Header } from "./layout/header/Header";
-import { Main } from "./layout/section/main/Main";
-import { Info } from "./layout/section/info/Info";
+import { Info } from "./layout/section/Info";
+import { Main } from "./layout/section/Main";
+import { Start } from "./layout/section/Start";
+import { RegisterForm } from "./components/Registration/RegisterForm";
 
 function App() {
+  const [StartOn, setStartOn] = useState(true);
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Info />
+      <Header setStartOn={setStartOn} />
+      <Main setStartOn={setStartOn} startOn={StartOn} />
+      {StartOn ? <Info setStartOn={setStartOn} /> : <Start />}
+      <RegisterForm />
     </div>
   );
 }

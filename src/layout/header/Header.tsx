@@ -9,8 +9,10 @@ import { Icon } from "../../components/icon/Icon";
 import { theme } from "../../styles/Theme";
 import { font, size } from "../../styles/Common";
 import { BurgerButton } from "./mobileMenu/BurgerButton";
-
-export const Header = () => {
+type HeaderProps = {
+  setStartOn: (startOn: boolean) => void;
+};
+export const Header = (props: HeaderProps) => {
   return (
     <div>
       <BurgerButton />
@@ -23,7 +25,7 @@ export const Header = () => {
           <Icon id="discord" viewBox="0 0 256 256" width="35" height="35" />
         </SocialLink>
         <MenuContainer>
-          <Menu />
+          <Menu setStartOn={props.setStartOn} />
         </MenuContainer>{" "}
         <Button
           variant="contained"

@@ -5,8 +5,10 @@ import styled from "styled-components";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/Theme";
 import { size } from "../../styles/Common";
-
-export const Server = () => {
+type HeaderProps = {
+  setStartOn: (startOn: boolean) => void;
+};
+export const Server = (props: HeaderProps) => {
   return (
     <Wrapper>
       <h2>Сервера Рома Продакшен</h2>
@@ -20,7 +22,9 @@ export const Server = () => {
 
       <Startgame>
         {" "}
-        <ServerLink href="">Играть</ServerLink>{" "}
+        <ServerLink onClick={() => props.setStartOn(false)}>
+          Играть
+        </ServerLink>{" "}
         <ServerLink href="">О сервере</ServerLink>{" "}
       </Startgame>
     </Wrapper>

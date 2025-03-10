@@ -2,13 +2,17 @@
 import { styled } from "styled-components";
 import { theme } from "../../styles/Theme";
 import { font, size } from "../../styles/Common";
-
-export const Menu = () => {
+type HeaderProps = {
+  setStartOn: (startOn: boolean) => void;
+};
+export const Menu = (props: HeaderProps) => {
   return (
     <StyledMenu>
       <ul>
         <li>
-          <a href="">Главная</a>
+          <a href="" onClick={() => props.setStartOn(true)}>
+            Главная
+          </a>
         </li>
         <li>
           <a href="">Форум</a>

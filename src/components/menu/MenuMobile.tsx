@@ -12,6 +12,9 @@ export const MenuMobile = () => {
           <a href="">Главная</a>
         </li>
         <li>
+          <a href="">ЛК</a>
+        </li>
+        <li>
           <a href="">Форум</a>
         </li>
         <li>
